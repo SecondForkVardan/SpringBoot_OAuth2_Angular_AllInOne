@@ -7,6 +7,7 @@ import com.company.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
@@ -65,7 +66,7 @@ public class SampleDataInitializer implements ApplicationListener<ContextRefresh
     private User createUser() {
         User user = new User();
         user.setUsername(USERNAME);
-        user.setPassword(PASSWORD);
+        user.setPassword(new BCryptPasswordEncoder().encode(PASSWORD));
 
         return user;
     }
