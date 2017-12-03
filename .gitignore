@@ -6,6 +6,9 @@
 *.jar
 /out/
 
+# Frontend
+/front/npm-v5.5.1/
+
 # Gradle
 .gradle
 /build/
@@ -14,4 +17,5 @@
 # Builded Angular
 src/main/resources/static/index.html
 src/main/resources/static/*.js
+src/main/resources/static/*.map
 src/main/resources/static/favicon.ico
