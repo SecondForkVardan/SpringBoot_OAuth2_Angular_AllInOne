@@ -6,6 +6,12 @@ http://www.baeldung.com/rest-api-spring-oauth2-angularjs
 http://www.baeldung.com/angular-4-upgrade-for-spring-security-oauth   
 https://kobietydokodu.pl/projekt-bilet-3-konfigurujemy-spring-security-oraz-oauth/    
 
+## Architecture  
+In this example, Authorization and Resource server are in the same application.    
+Also, Angular is a client and it's served from src/main/static directory.    
+That has made security configuration a little tricky.    
+All /api/** calls are secured by OAuth2, and files under /static/** are not secured.
+
 ## How to run
 1.  Set up Your db connection in \src\main\resources\ **application.yaml**    
 2.  Do the same in **flyway** block in **build.bradle**    
