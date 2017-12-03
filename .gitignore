@@ -9,4 +9,9 @@
 # Gradle
 .gradle
 /build/
-!gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Builded Angular
+src/main/resources/static/index.html
+src/main/resources/static/*.js
+src/main/resources/static/favicon.ico

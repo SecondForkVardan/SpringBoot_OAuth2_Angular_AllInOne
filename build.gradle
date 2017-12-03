@@ -48,3 +48,28 @@ flyway {
 	password = 'root'
 	schemas = ['oauth']
 }
+
+node {
+	version = '8.1.4'
+	npmVersion = '5.5.1'
+	download = true
+	workDir = file("${project.buildDir}/nodejs")
+	npmWorkDir = file("${project.projectDir}/front")
+	nodeModulesDir = file("${project.projectDir}/front")
+}
+
+task buildAngular(type: NpmTask){
+	group 'build'
+	args = ['run', 'build']
+}
+
+task copyAngularToStaticResources(type: Copy){
+	group "build"
+	from "${projectDir}/front/dist"
+	into "${projectDir}/src/main/resources/static"
+	include '*', '*/*', '*/**'
+	dependsOn buildAngular
+	outputs.upToDateWhen {false}
+}
+
+buildAngular.dependsOn npmInstall
